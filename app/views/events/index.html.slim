@@ -1,0 +1,23 @@
+h1 = Date.today
+
+h2 Events
+table border='1px' width='100%'
+  - @data[:events].each do |event|
+    tr
+      td = event['year']
+      td = event['text']
+
+
+h2 Births
+table border='1px' width='100%'
+  - @data[:births].each do |birth|
+    tr
+      td = birth['year']
+      td = birth['text']
+
+h2 Deaths
+table border='1px' width='100%'
+  - @data[:deaths].each do |death|
+    tr
+      td = death['year']
+      td = death['text']
