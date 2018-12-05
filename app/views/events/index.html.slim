@@ -1,23 +1,24 @@
 h1 = Date.today
 
+script type="text/javascript" src="https://www.brainyquote.com/link/quotebr.js"
+
 h2 Events
 table border='1px' width='100%'
-  - @data[:events].each do |event|
+  - @today[:events].each do |event|
     tr
       td = event['year']
-      td = event['text']
-
+      td = event['html'].html_safe
 
 h2 Births
 table border='1px' width='100%'
-  - @data[:births].each do |birth|
+  - @today[:births].each do |birth|
     tr
       td = birth['year']
-      td = birth['text']
+      td = birth['html'].html_safe
 
 h2 Deaths
 table border='1px' width='100%'
-  - @data[:deaths].each do |death|
+  - @today[:deaths].each do |death|
     tr
       td = death['year']
-      td = death['text']
+      td = death['html'].html_safe

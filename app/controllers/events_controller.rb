@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
   def index
-    @data =  GetToday.new.to_attributes
+    @today = GetToday.new.to_attributes
   end
 end
