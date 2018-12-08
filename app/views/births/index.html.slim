@@ -1,7 +1,7 @@
 a href=root_path Back to Home
 h2 Births
 table border='1px' width='100%'
-  - @today[:births].each do |birth|
+  - @today.each do |birth|
     tr
       td = birth['year']
       td = birth['html'].html_safe
@@ -9,3 +9,4 @@ table border='1px' width='100%'
         - twitter_text = "#{birth['text']} birth today in #{birth['year']}"
         a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
           | Tweet this
+= paginate @today

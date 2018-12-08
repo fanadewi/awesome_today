@@ -1,5 +1,6 @@
 class DeathsController < ApplicationController
   def index
-    @today = GetToday.new.to_attributes
+    data = GetToday.new.to_attributes
+    @today = Kaminari.paginate_array(data[:deaths]).page(params[:page])
   end
 end

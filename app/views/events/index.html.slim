@@ -1,7 +1,7 @@
 a href=root_path Back to Home
 h2 Events
 table border='1px' width='100%'
-  - @today[:events].each do |event|
+  - @today.each do |event|
     tr
       td = event['year']
       td = event['html'].html_safe
@@ -9,3 +9,5 @@ table border='1px' width='100%'
         - twitter_text = "Happening Today: in #{event['year']}, #{event['text']}"
         a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
           | Tweet this
+
+= paginate @today
