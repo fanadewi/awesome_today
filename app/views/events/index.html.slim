@@ -8,6 +8,10 @@ table border='1px' width='100%'
     tr
       td = event['year']
       td = event['html'].html_safe
+      td
+        - twitter_text = "Happening Today: in #{event['year']}, #{event['text']}"
+        a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
+          | Tweet this
 
 h2 Births
 table border='1px' width='100%'
@@ -15,6 +19,10 @@ table border='1px' width='100%'
     tr
       td = birth['year']
       td = birth['html'].html_safe
+      td
+        - twitter_text = "#{birth['text']} birth today in #{birth['year']}"
+        a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
+          | Tweet this
 
 h2 Deaths
 table border='1px' width='100%'
@@ -22,3 +30,7 @@ table border='1px' width='100%'
     tr
       td = death['year']
       td = death['html'].html_safe
+      td
+        - twitter_text = "#{death['text']} death today in #{death['year']}"
+        a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
+          | Tweet this
