@@ -1,3 +1,5 @@
 class PagesController < ApplicationController
-  def index; end
+  def index
+    @quote = Quote.new.to_attributes
+  end
 end
