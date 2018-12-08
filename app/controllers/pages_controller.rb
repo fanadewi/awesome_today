@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
   def index
-    @quote = Quote.new.to_attributes
+    @quote = Quote.last
   end
 end

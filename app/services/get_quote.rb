@@ -1,4 +1,4 @@
-class Quote
+class GetQuote
   require 'rest-client'
   require 'json'
   require 'uri'
