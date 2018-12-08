@@ -1,11 +1,11 @@
 a href=root_path Back to Home
-h2 Events
+h2 Deaths
 table border='1px' width='100%'
-  - @today[:events].each do |event|
+  - @today[:deaths].each do |death|
     tr
-      td = event['year']
-      td = event['html'].html_safe
+      td = death['year']
+      td = death['html'].html_safe
       td
-        - twitter_text = "Happening Today: in #{event['year']}, #{event['text']}"
+        - twitter_text = "#{death['text']} death today in #{death['year']}"
         a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
           | Tweet this
