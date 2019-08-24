@@ -1,11 +1,12 @@
-# AWESOME TODAY
+# Awesome Today
+## What's happening today?
 
-Awesome Today is a Simple Data collection about Today.
+Find out what's happening and history of what things ever happened on this day
 
 Tools:
 
-* Ruby version '2.5.1'
-* Rails version '5.2.2'
+* Ruby version '2.6.3'
+* Rails version '6.0.0'
 * PostgreSql
 
 

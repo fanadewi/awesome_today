@@ -1,0 +1,292 @@
+swagger: "2.0"
+info:
+  description: "Fin out everything about today!"
+  version: "1.0.0"
+  title: "Awesome Today"
+  # termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "f.ana.d@outlook.co.id"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "awesome-today.herokuapp.com"
+basePath: "/v1"
+tags:
+- name: "Today"
+  description: "find out Who born today"
+- name: "Specific Date"
+  description: "Access to Petstore orders"
+schemes:
+- "https"
+- "http"
+paths:
+  /{date}/birthdays:
+    get:
+      tags:
+      - "Specific Date"
+      summary: "Find who born on specific date"
+      description: "Returns a collection of people who born on specific date"
+      operationId: "listBornByDate"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "query"
+        default: 1
+        type: "integer"
+        description: "page number"
+      - name: "date"
+        default: "2019-12-30"
+        in: "path"
+        description: "Date"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Birthdays"
+        400:
+          description: "Invalid Date"
+  /{date}/deaths:
+    get:
+      tags:
+      - "Specific Date"
+      summary: "Find who dies on specific date"
+      description: "Returns a collection of people who dies on specific date"
+      operationId: "listDieByDate"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "query"
+        default: 1
+        type: "integer"
+        description: "page number"
+      - name: "date"
+        default: "2019-12-30"
+        in: "path"
+        description: "Date"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Deaths"
+        400:
+          description: "Invalid Date"
+  /{date}/events:
+    get:
+      tags:
+      - "Specific Date"
+      summary: "Find events happen on specific date"
+      description: "Returns a collection of events happen on specific date"
+      operationId: "listEventsByDate"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "query"
+        default: 1
+        type: "integer"
+        description: "page number"
+      - name: "date"
+        default: "2019-12-30"
+        in: "path"
+        description: "Date"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Events"
+        400:
+          description: "Invalid Date"
+  /birthdays:
+    get:
+      tags:
+      - "Today"
+      summary: "Find who born on this day"
+      description: "Returns a collection of people who born on this day"
+      operationId: "listBornToday"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Birthdays"
+  /deaths:
+    get:
+      tags:
+      - "Today"
+      summary: "Find who dies on this day"
+      description: "Returns a collection of people who dies on this day"
+      operationId: "listDieToday"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Deaths"
+  /events:
+    get:
+      tags:
+      - "Today"
+      summary: "Find events happen on this day"
+      description: "Returns a collection of events happen on this day"
+      operationId: "listEventsToday"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Events"
+
+definitions:
+  Birthdays:
+    type: "object"
+    required:
+    - "date"
+    - "birthdays"
+    - "response_code"
+    - "response_message"
+    - "links"
+    properties:
+      date:
+        type: "string"
+        example: "8th August"
+      response_code:
+        type: "string"
+        example: "200"
+      response_message:
+        type: "string"
+        example: "Success"
+      birthdays:
+        type: "array"
+        items:
+          $ref: "#/definitions/Birthday"
+      links:
+        $ref: "#/definitions/Links"
+  Birthday:
+    type: "object"
+    required:
+    - "name"
+    - "desc"
+    properties:
+      name:
+        type: "string"
+        example: "Alex"
+      desc:
+        type: "string"
+        example: "Alex born in 1988-08-08"
+  Deaths:
+    type: "object"
+    required:
+    - "date"
+    - "deaths"
+    - "response_code"
+    - "response_message"
+    - "links"
+    properties:
+      date:
+        type: "string"
+        example: "8th August"
+      response_code:
+        type: "string"
+        example: "200"
+      response_message:
+        type: "string"
+        example: "Success"
+      deaths:
+        type: "array"
+        items:
+          $ref: "#/definitions/Death"
+      links:
+        $ref: "#/definitions/Links"
+  Death:
+    type: "object"
+    required:
+    - "name"
+    - "desc"
+    properties:
+      name:
+        type: "string"
+        example: "Alex"
+      desc:
+        type: "string"
+        example: "Alex born in 1988-08-08"
+  Events:
+    type: "object"
+    required:
+    - "date"
+    - "events"
+    - "response_code"
+    - "response_message"
+    - "links"
+    properties:
+      date:
+        type: "string"
+        example: "8th August"
+      response_code:
+        type: "string"
+        example: "200"
+      response_message:
+        type: "string"
+        example: "Success"
+      events:
+        type: "array"
+        items:
+          $ref: "#/definitions/Event"
+      links:
+        $ref: "#/definitions/Links"
+  Event:
+    type: "object"
+    required:
+    - "title"
+    - "desc"
+    properties:
+      title:
+        type: "string"
+        example: "Alex is born"
+      desc:
+        type: "string"
+        example: "Alex born in 1988-08-08"
+  Links:
+    type: "object"
+    required: 
+    - "self"
+    - "first"
+    - "prev"
+    - "next"
+    - "last"
+    - "per_page"
+    properties: 
+      self: 
+        type: "integer"
+        format: "int32"
+        example: 1
+      first: 
+        type: "integer"
+        format: "int32"
+        example: 1
+      prev: 
+        type: "integer"
+        format: "int32"
+        example: 1
+      next: 
+        type: "integer"
+        format: "int32"
+        example: 1
+      last: 
+        type: "integer"
+        format: "int32"
+        example: 1
+      per_page: 
+        type: "integer"
+        format: "int32"
+        example: 10
