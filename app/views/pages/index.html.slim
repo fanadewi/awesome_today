@@ -1,13 +1,12 @@
-h1 = Date.today
-p = @quote[:text]
-a href="#{@quote[:link]}" = "- #{@quote[:author]}"
 - twitter_text = "#{@quote[:text]} - #{@quote[:author]}"
 p
-  a  target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
 
-h2
-  a href=events_path Events
-h2
-  a href=births_path Births
-h2 
-  a href=deaths_path Deaths
+.jumbotron
+  .container
+    h1.display-4 #{Date.today}
+    p.lead #{@quote[:text]}
+    hr.my-4/
+    p
+      a href="#{@quote[:link]}" = "- #{@quote[:author]}"
+    
+    a.btn.btn-primary.btn-lg target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"

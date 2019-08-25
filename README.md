@@ -9,6 +9,9 @@ Tools:
 * Rails version '6.0.0'
 * PostgreSql
 
+Logo: #7AA5D2, #47555E, #fffff
+Generated_pallete: #7CA4D4, #77A4CC, #D9E0E8, #44545C, #647D9C
+Ice-infinity: #385E72, #6AABD2, #B7CFDC, #D9E4EC
 
 Configuration:
 

@@ -32,6 +32,8 @@ gem 'slim-rails'
 gem 'rest-client', '>= 1.8.0'
 gem 'json'
 gem 'kaminari'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
