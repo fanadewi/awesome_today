@@ -3,10 +3,10 @@ p
 
 .jumbotron
   .container
-    h1.display-4 #{Date.today}
+    h1.display-4
+      a href="#{@quote[:link]}" = "#{@quote[:author]}"
     p.lead #{@quote[:text]}
     hr.my-4/
-    p
-      a href="#{@quote[:link]}" = "- #{@quote[:author]}"
-    
     a.btn.btn-primary.btn-lg target='_blank' class="twitter-share-button" href="https://twitter.com/intent/tweet?text=#{twitter_text}&url=#{root_url}" data-size="large"
+    hr.my-4/
+  = image_tag('logo.png', class: 'img-fluid mx-auto d-block')
